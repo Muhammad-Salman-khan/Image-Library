@@ -6,8 +6,6 @@ import fetcher from "./ApiCaller/ApiFetcher.js";
 import { useEffect } from "react";
 import { useState } from "react";
 import Logo from "./assets/alien-svgrepo-com.svg";
-import { useEffectEvent } from "react";
-import { LucideClock10 } from "lucide-react";
 const App = () => {
   const [P, setP] = useState(1);
   const [Data, setData] = useState([]);
@@ -23,14 +21,9 @@ const App = () => {
     }
   );
 
-  const HandleDataUpdate = useEffectEvent((D) => {
-    setData(D);
-  });
-
   useEffect(() => {
-    if (data);
-    HandleDataUpdate(data);
-  }, [data, HandleDataUpdate]);
+    if (data) setData(data);
+  }, [data]);
 
   const PrevPage = () => {
     setP((e) => (P >= 1 ? e - 1 : 0));
