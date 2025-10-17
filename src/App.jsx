@@ -6,10 +6,12 @@ import fetcher from "./ApiCaller/ApiFetcher.js";
 import { useEffect } from "react";
 import { useState } from "react";
 import Logo from "./assets/alien-svgrepo-com.svg";
-import { Suspense } from "react";
+import { useEffectEvent } from "react";
+import { LucideClock10 } from "lucide-react";
 const App = () => {
   const [P, setP] = useState(1);
   const [Data, setData] = useState([]);
+
   const { data, isLoading } = useSWR(
     `https://picsum.photos/v2/list?page=${P}&limit=10&grayscale`,
     fetcher,
@@ -21,9 +23,15 @@ const App = () => {
     }
   );
 
+  const HandleDataUpdate = useEffectEvent((D) => {
+    console.log(`${P} updated`);
+    setData(D);
+  });
+
   useEffect(() => {
-    if (data) setData(data);
-  }, [data]);
+    if (data);
+    HandleDataUpdate(data);
+  }, [data, HandleDataUpdate]);
 
   const PrevPage = () => {
     setP((e) => (P >= 1 ? e - 1 : 0));
