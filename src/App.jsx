@@ -10,7 +10,7 @@ const App = () => {
   const [P, setP] = useState(1);
   const [Data, setData] = useState([]);
   const { data, isLoading } = useSWR(
-    `https://picsum.photos/v2/list?page=${P}&limit=15&grayscale`,
+    `https://picsum.photos/v2/list?page=${P}&limit=10&grayscale`,
     fetcher
   );
 
