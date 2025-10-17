@@ -16,8 +16,9 @@ const App = () => {
     {
       revalidateOnFocus: false,
       dedupingInterval: 2000,
-    },
-    { Suspense: false }
+      keepPreviousData: true,
+      suspense: false,
+    }
   );
 
   useEffect(() => {
