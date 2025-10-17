@@ -24,7 +24,6 @@ const App = () => {
   );
 
   const HandleDataUpdate = useEffectEvent((D) => {
-    console.log(`${P} updated`);
     setData(D);
   });
 
