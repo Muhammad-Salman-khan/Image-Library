@@ -14,7 +14,7 @@ const App = () => {
     `https://picsum.photos/v2/list?page=${P}&limit=10&grayscale`,
     fetcher,
     {
-      revalidateOnFocus: true,
+      revalidateOnFocus: false,
       dedupingInterval: 2000,
     },
     { Suspense: false }
