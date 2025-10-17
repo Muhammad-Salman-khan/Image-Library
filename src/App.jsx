@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import fetcher from "./ApiCaller/ApiFetcher.js";
 import { useEffect } from "react";
 import { useState } from "react";
-import Logo from "../public/alien-svgrepo-com.svg";
+import Logo from "./assets/alien-svgrepo-com.svg";
 const App = () => {
   const [P, setP] = useState(1);
   const [Data, setData] = useState([]);
@@ -19,11 +19,11 @@ const App = () => {
   }, [data]);
 
   const PrevPage = () => {
-    setP((e) => (P >= 1 ? e - 1 : 0), setData([]));
+    setP((e) => (P >= 1 ? e - 1 : 0));
   };
 
   const NextPage = () => {
-    setP((e) => (P < 11 ? e + 1 : 0), setData([]));
+    setP((e) => (P < 11 ? e + 1 : 0));
   };
   return (
     <>
