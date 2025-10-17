@@ -6,12 +6,18 @@ import fetcher from "./ApiCaller/ApiFetcher.js";
 import { useEffect } from "react";
 import { useState } from "react";
 import Logo from "./assets/alien-svgrepo-com.svg";
+import { Suspense } from "react";
 const App = () => {
   const [P, setP] = useState(1);
   const [Data, setData] = useState([]);
   const { data, isLoading } = useSWR(
     `https://picsum.photos/v2/list?page=${P}&limit=10&grayscale`,
-    fetcher
+    fetcher,
+    {
+      revalidateOnFocus: true,
+      dedupingInterval: 2000,
+    },
+    { Suspense: false }
   );
 
   useEffect(() => {
